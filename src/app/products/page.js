@@ -27,14 +27,12 @@ export default function ProductsPage() {
   const [category, setCategory] = useState("");
   const limit = 10;
 
-  // Protect route
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
     }
   }, [status, router]);
 
-  // Fetch products
   useEffect(() => {
     fetchProducts(limit, (page - 1) * limit, search, category);
   }, [page, search, category, fetchProducts]);
